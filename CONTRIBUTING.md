@@ -127,6 +127,7 @@ The `xtask setup` command:
 - Downloads iOS dependencies if iOS targets are installed
 
 **Important:** After running `xtask setup`, you can use convenient aliases:
+
 ```bash
 cargo daemon  # Runs sd-daemon with ffmpeg,heif features enabled
 cargo cli     # Runs sd-cli with ffmpeg,heif features enabled
@@ -173,6 +174,7 @@ By default, `cargo build` compiles without optional features to speed up builds 
 - ✅ **With `--features ffmpeg,heif`:** Full media processing capabilities
 
 **For development, use:**
+
 ```bash
 # Build with all media features (recommended)
 cargo build --features sd-core/ffmpeg,sd-core/heif
@@ -213,13 +215,13 @@ For even shorter commands, add a shell alias:
 **Bash/Zsh** (`~/.bashrc` or `~/.zshrc`):
 
 ```bash
-alias sd="~/Projects/spacedrive/target/debug/sd-cli"
+alias sd="~/spacedrive/target/debug/sd-cli"
 ```
 
 **Fish** (`~/.config/fish/config.fish`):
 
 ```fish
-alias sd="~/Projects/spacedrive/target/debug/sd-cli"
+alias sd="~/spacedrive/target/debug/sd-cli"
 ```
 
 Then reload your shell (`source ~/.zshrc`) and you can use:
@@ -321,6 +323,7 @@ The React Native mobile app provides cross-platform iOS and Android support with
 | Java           | 17      | Android builds                             |
 
 #### Quick Start
+
 > [!important]
 > If you're building for Android devices, it's imperative that you install NDK (26.1.10909125) and CMake in Android Studio's SDK Manager in order to build the aws-lc crypto library. You'll need to add the NDK path to your system's environment variable as `ANDROID_NDK` or `ANDROID_NDK_HOME`.
 
@@ -744,6 +747,7 @@ cargo build
 ```
 
 These flags enable:
+
 - NEON (Advanced SIMD) instructions
 - Crypto extensions (AES, SHA2)
 - Excludes i8mm to avoid incompatibility issues
@@ -1084,15 +1088,15 @@ packages/
 
 ### Quick Reference: Command Mapping
 
-| V1 Command               | V2 Equivalent                                            |
-| ------------------------ | -------------------------------------------------------- |
-| `bun install`            | `bun install` (still required for Tauri app)             |
-| `bun prep`               | `cargo run -p xtask -- setup`                            |
-| `bun tauri dev`          | `cd apps/tauri && bun run tauri:dev`                     |
-| `bun mobile ios`         | `cd apps/mobile && bun run ios`                          |
-| `bun mobile android`     | `cd apps/mobile && bun run android`                      |
-| `cargo run -p sd-server` | `cargo cli` or `cargo daemon` (includes media features)  |
-| `bun dev:web`            | Not yet available (web in progress)                      |
+| V1 Command               | V2 Equivalent                                           |
+| ------------------------ | ------------------------------------------------------- |
+| `bun install`            | `bun install` (still required for Tauri app)            |
+| `bun prep`               | `cargo run -p xtask -- setup`                           |
+| `bun tauri dev`          | `cd apps/tauri && bun run tauri:dev`                    |
+| `bun mobile ios`         | `cd apps/mobile && bun run ios`                         |
+| `bun mobile android`     | `cd apps/mobile && bun run android`                     |
+| `cargo run -p sd-server` | `cargo cli` or `cargo daemon` (includes media features) |
+| `bun dev:web`            | Not yet available (web in progress)                     |
 
 ### Getting Help with Migration
 
