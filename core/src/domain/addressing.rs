@@ -192,9 +192,10 @@ impl SdPath {
 	}
 
 	/// Create an SdPath for a local file on this device
+	/// Uses "local" placeholder which is resolved at runtime by as_local_path()
 	pub fn local(path: impl Into<PathBuf>) -> Self {
 		Self::Physical {
-			device_slug: get_current_device_slug(),
+			device_slug: "local".to_string(),
 			path: path.into(),
 		}
 	}
@@ -231,7 +232,9 @@ impl SdPath {
 	pub fn display(&self) -> String {
 		match self {
 			Self::Physical { device_slug, path } => {
-				format!("local://{}/{}", device_slug, path.display())
+				let path_str = path.display().to_string();
+				let path_clean = path_str.strip_prefix('/').unwrap_or(&path_str);
+				format!("local://{}/{}", device_slug, path_clean)
 			}
 			Self::Cloud {
 				service,
